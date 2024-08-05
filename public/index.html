@@ -8,15 +8,26 @@
 >
 <meta content='ie=edge' http-equiv='X-UA-Compatible'>
 <script
-    crossorigin='anonymous'
-    integrity='sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/'
-    src='https://unpkg.com/htmx.org@2.0.1'
+    src="https://unpkg.com/htmx.org@1.9.10"
+    integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+    crossorigin="anonymous"
 ></script>
-<script src='https://cdn.tailwindcss.com'></script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
 <title>HTMX</title>
 </head>
 <body>
-  <h1>Hello</h1>
-  
+  <div class='text-center'>
+      <h1 class='text-2xl font-bold my-5'>
+        Simple Request Example
+      </h1>
+    <button
+        class='bg-blue-500 text-white py-2 px-3 my-5 rounded-lg'
+        hx-get='/users'
+        hx-swap='outerHTML'
+    >
+      Fetch Users
+    </button>
+      </div>
 </body>
 </html>
