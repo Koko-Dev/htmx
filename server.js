@@ -13,12 +13,15 @@ app.use( express.json() );
 
 
 // Handle GET request to fetch users
-app.get( '/users', ( req, res ) => {
-  const users = [
-    { name: 'John Doe', email: 'john@gmail.com', id: '1' },
-    { name: 'Bob Williams', email: 'bob@gmail.com', id: '2' },
-    { name: 'Shannon Jackson', email: 'shannon@gmail.com', id: '3' },
-  ];
+app.get( '/users', async ( req, res ) => {
+//  const users = [
+//    { name: 'John Doe', email: 'john@gmail.com', id: '1' },
+//    { name: 'Bob Williams', email: 'bob@gmail.com', id: '2' },
+//    { name: 'Shannon Jackson', email: 'shannon@gmail.com', id: '3' },
+//  ];
+  
+  const response = await fetch( 'https://jsonplaceholder.typicode.com/users' );
+  const users = await response.json();
   
   res.send( `
     <h1 class='text-2xl font-bold my-4'>Users</h1>
