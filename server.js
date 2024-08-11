@@ -29,5 +29,21 @@ app.get( '/users', async ( req, res ) => {
   
 } );
 
+// Handle POST request for temp converstion
+app.post( '/convert', ( req, res ) => {
+  setTimeout( () => {
+    const fahrenheit = parseFloat( req.body.fahrenheit );
+    const celsius = (
+                        fahrenheit - 32 ) * (
+                        5 / 9 );
+    res.send( `
+    <p>
+      ${ fahrenheit } degrees Fahrenheit is equal to ${ celsius.toFixed( 2 ) } degrees Celsius
+    </p>
+` );
+  }, 2000 );
+} );
+
+
 // Start the server
 app.listen( 3000, () => console.log( 'Server started on port 3000' ) );
