@@ -15,7 +15,8 @@ app.use( express.json() );
 // Handle GET request to fetch users
 app.get( '/users', async ( req, res ) => {
   setTimeout( async () => {
-    const response = await fetch( 'https://jsonplaceholder.typicode.com/users' );
+    const limit = +req.query.limit || 6;
+    const response = await fetch( `https://jsonplaceholder.typicode.com/users?_limit=${ limit }` );
     const users = await response.json();
     
     res.send( `
