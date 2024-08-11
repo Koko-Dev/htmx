@@ -29,6 +29,7 @@ app.get( '/users', async ( req, res ) => {
   
 } );
 
+
 // Handle POST request for temp converstion
 app.post( '/convert', ( req, res ) => {
   setTimeout( () => {
@@ -42,6 +43,15 @@ app.post( '/convert', ( req, res ) => {
     </p>
 ` );
   }, 2000 );
+} );
+
+
+// Handle GET request for polling example
+let counter = 0;
+app.get( '/poll', ( req, res ) => {
+  counter++;
+  const data = { value: counter };
+  res.json( data );
 } );
 
 

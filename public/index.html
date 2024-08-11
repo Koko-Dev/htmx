@@ -14,9 +14,15 @@
 ></script>
 
     <script src='https://cdn.tailwindcss.com'></script>
-<title>HTMX - Temperature Converter</title>
+<title>HTMX - Polling</title>
 </head>
 <body>
-
+  <div class='text-center'>
+    <span
+        hx-get='/poll'
+        hx-trigger='every 5s'>
+      Loading,,,
+    </span>
+  </div>
 </body>
 </html>
