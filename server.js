@@ -55,5 +55,13 @@ app.get( '/poll', ( req, res ) => {
 } );
 
 
+// Handle GET request for weather
+let currentTemperature = 20;
+app.get( '/get-temperature', ( req, res ) => {
+  // Generate a random Celsius temperature
+  currentTemperature += Math.random() * 2 - 1;  // Random temp change
+  res.send( currentTemperature.toFixed( 1 ) + '°C' );
+} );
+
 // Start the server
 app.listen( 3000, () => console.log( 'Server started on port 3000' ) );
